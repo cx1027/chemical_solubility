@@ -1,0 +1,35 @@
+{% extends "bootstrap/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="jumbotron" style="background-color:#1daeff !important;">
+        <h2 style="color:#fff;">Compound Solubility Prediction Tool</h2>
+        <p style="color:#fff;">Using Machine Learning to predict the compound solubility based on Compound SIMILES Presentation</p>
+<!--        <div class="main">-->
+<!--            <div class="row">-->
+<!--                <div class="col-md-8" style="background-color:#1dcaff">-->
+<!--                    <h2 style="color:#fff">Upload Your Dataset</h2>-->
+                    <p style="color:#fff">Upload Your Dataset with Compound SIMILES Presentation</p>
+                    <form method=POST enctype=multipart/form-data action="{{ url_for('datauploads') }}"
+                          class="form-group">
+                        <div class="form-group">
+                            <input type="file" name="csv_data">
+                            <br/>
+                        </div>
+                        <input type="submit" onclick="myAnalyser()" class="btn btn-primary mb-2">
+                        <input type="reset" value="Reset" class="btn btn-danger mb-2">
+                    </form>
+                    <br/>
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+    </div>
+</div>
+
+{% endblock %}
+{% block styles %}
+{{super()}} <!-- Allows Javascripts and other styles to be inclusive in bootstrap -->
+<link rel="stylesheet"
+      href="{{url_for('.static', filename='css/styles.css')}}">
+{% endblock %}
+
